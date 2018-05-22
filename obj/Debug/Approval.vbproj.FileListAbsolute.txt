@@ -1,0 +1,13 @@
+C:\Users\pradanap\source\repos\Approval\Approval\bin\Debug\Approval.exe.config
+C:\Users\pradanap\source\repos\Approval\Approval\bin\Debug\Approval.exe
+C:\Users\pradanap\source\repos\Approval\Approval\bin\Debug\Approval.pdb
+C:\Users\pradanap\source\repos\Approval\Approval\bin\Debug\Approval.xml
+C:\Users\pradanap\source\repos\Approval\Approval\obj\Debug\Approval.vbprojResolveAssemblyReference.cache
+C:\Users\pradanap\source\repos\Approval\Approval\obj\Debug\Approval.Form1.resources
+C:\Users\pradanap\source\repos\Approval\Approval\obj\Debug\Approval.Resources.resources
+C:\Users\pradanap\source\repos\Approval\Approval\obj\Debug\Approval.vbproj.GenerateResource.cache
+C:\Users\pradanap\source\repos\Approval\Approval\obj\Debug\Approval.vbproj.CoreCompileInputs.cache
+C:\Users\pradanap\source\repos\Approval\Approval\obj\Debug\Approval.exe
+C:\Users\pradanap\source\repos\Approval\Approval\obj\Debug\Approval.xml
+C:\Users\pradanap\source\repos\Approval\Approval\obj\Debug\Approval.pdb
+C:\Users\pradanap\source\repos\Approval\Approval\obj\Debug\Approval.vbproj.ResolveComReference.cache

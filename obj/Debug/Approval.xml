@@ -1,0 +1,276 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Approval
+</name>
+</assembly>
+<members>
+<member name="T:Approval.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:Approval.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:Approval.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:Approval.EmployeeDataSet">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:Approval.EmployeeDataSet.deptDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Approval.EmployeeDataSet.EmployeeDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Approval.EmployeeDataSet.staffListDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Approval.EmployeeDataSet.emailDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Approval.EmployeeDataSet.deptRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Approval.EmployeeDataSet.EmployeeRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Approval.EmployeeDataSet.staffListRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Approval.EmployeeDataSet.emailRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Approval.EmployeeDataSet.deptRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Approval.EmployeeDataSet.EmployeeRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Approval.EmployeeDataSet.staffListRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Approval.EmployeeDataSet.emailRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Approval.EmployeeDataSetTableAdapters.deptTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Approval.EmployeeDataSetTableAdapters.EmployeeTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Approval.EmployeeDataSetTableAdapters.staffListTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Approval.EmployeeDataSetTableAdapters.emailTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Approval.EmployeeDataSetTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:Approval.EmployeeDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(Approval.EmployeeDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:Approval.EmployeeDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(Approval.EmployeeDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:Approval.EmployeeDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(Approval.EmployeeDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:Approval.EmployeeDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:Approval.EmployeeDataSetTableAdapters.TableAdapterManager.UpdateAll(Approval.EmployeeDataSet)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:Approval.EmployeeDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:Approval.EmployeeDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:Approval.Personel_ActionDataSet">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:Approval.Personel_ActionDataSet.actionCodeDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Approval.Personel_ActionDataSet.approvalDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Approval.Personel_ActionDataSet.personelActionDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Approval.Personel_ActionDataSet.FindApprovalDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Approval.Personel_ActionDataSet.actionCodeRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Approval.Personel_ActionDataSet.approvalRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Approval.Personel_ActionDataSet.personelActionRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Approval.Personel_ActionDataSet.FindApprovalRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Approval.Personel_ActionDataSet.actionCodeRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Approval.Personel_ActionDataSet.approvalRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Approval.Personel_ActionDataSet.personelActionRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Approval.Personel_ActionDataSet.FindApprovalRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Approval.Personel_ActionDataSetTableAdapters.actionCodeTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Approval.Personel_ActionDataSetTableAdapters.approvalTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Approval.Personel_ActionDataSetTableAdapters.personelActionTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Approval.Personel_ActionDataSetTableAdapters.FindApprovalTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Approval.Personel_ActionDataSetTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:Approval.Personel_ActionDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(Approval.Personel_ActionDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:Approval.Personel_ActionDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(Approval.Personel_ActionDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:Approval.Personel_ActionDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(Approval.Personel_ActionDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:Approval.Personel_ActionDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:Approval.Personel_ActionDataSetTableAdapters.TableAdapterManager.UpdateAll(Approval.Personel_ActionDataSet)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:Approval.Personel_ActionDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:Approval.Personel_ActionDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+</members>
+</doc>

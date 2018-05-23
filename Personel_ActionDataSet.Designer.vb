@@ -1478,6 +1478,8 @@ Partial Public Class Personel_ActionDataSet
         
         Private columnno As Global.System.Data.DataColumn
         
+        Private columnaName As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -1562,6 +1564,14 @@ Partial Public Class Personel_ActionDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property aNameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnaName
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1598,9 +1608,9 @@ Partial Public Class Personel_ActionDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddFindApprovalRow(ByVal ID As String, ByVal emName As String, ByVal Description As String, ByVal KPK As String, ByVal status As Integer, ByVal no As Integer) As FindApprovalRow
+        Public Overloads Function AddFindApprovalRow(ByVal ID As String, ByVal emName As String, ByVal Description As String, ByVal KPK As String, ByVal status As Integer, ByVal no As Integer, ByVal aName As String) As FindApprovalRow
             Dim rowFindApprovalRow As FindApprovalRow = CType(Me.NewRow,FindApprovalRow)
-            Dim columnValuesArray() As Object = New Object() {ID, emName, Description, KPK, status, no}
+            Dim columnValuesArray() As Object = New Object() {ID, emName, Description, KPK, status, no, aName}
             rowFindApprovalRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowFindApprovalRow)
             Return rowFindApprovalRow
@@ -1635,6 +1645,7 @@ Partial Public Class Personel_ActionDataSet
             Me.columnKPK = MyBase.Columns("KPK")
             Me.columnstatus = MyBase.Columns("status")
             Me.columnno = MyBase.Columns("no")
+            Me.columnaName = MyBase.Columns("aName")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1652,10 +1663,13 @@ Partial Public Class Personel_ActionDataSet
             MyBase.Columns.Add(Me.columnstatus)
             Me.columnno = New Global.System.Data.DataColumn("no", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnno)
+            Me.columnaName = New Global.System.Data.DataColumn("aName", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnaName)
             Me.columnID.MaxLength = 255
             Me.columnemName.MaxLength = 255
             Me.columnDescription.MaxLength = 255
             Me.columnKPK.MaxLength = 255
+            Me.columnaName.MaxLength = 255
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2497,6 +2511,21 @@ Partial Public Class Personel_ActionDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property aName() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableFindApproval.aNameColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'aName' in table 'FindApproval' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableFindApproval.aNameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsIDNull() As Boolean
             Return Me.IsNull(Me.tableFindApproval.IDColumn)
         End Function
@@ -2565,6 +2594,18 @@ Partial Public Class Personel_ActionDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetnoNull()
             Me(Me.tableFindApproval.noColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsaNameNull() As Boolean
+            Return Me.IsNull(Me.tableFindApproval.aNameColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetaNameNull()
+            Me(Me.tableFindApproval.aNameColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -4627,6 +4668,7 @@ Namespace Personel_ActionDataSetTableAdapters
             tableMapping.ColumnMappings.Add("KPK", "KPK")
             tableMapping.ColumnMappings.Add("status", "status")
             tableMapping.ColumnMappings.Add("no", "no")
+            tableMapping.ColumnMappings.Add("aName", "aName")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -4643,7 +4685,7 @@ Namespace Personel_ActionDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ID, emName, Description, KPK, status, [no] FROM FindApproval"
+            Me._commandCollection(0).CommandText = "SELECT ID, emName, Description, KPK, status, [no], aName FROM FindApproval"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

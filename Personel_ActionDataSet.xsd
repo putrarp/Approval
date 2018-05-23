@@ -334,7 +334,7 @@ WHERE        ID = ?</CommandText>
               <DbSource ConnectionRef="Personel_ActionConnectionString (MySettings)" DbObjectName="FindApproval" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT ID, emName, Description, KPK, status, [no] FROM FindApproval</CommandText>
+                    <CommandText>SELECT ID, emName, Description, KPK, status, [no], aName FROM FindApproval</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -347,6 +347,7 @@ WHERE        ID = ?</CommandText>
               <Mapping SourceColumn="KPK" DataSetColumn="KPK" />
               <Mapping SourceColumn="status" DataSetColumn="status" />
               <Mapping SourceColumn="no" DataSetColumn="no" />
+              <Mapping SourceColumn="aName" DataSetColumn="aName" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -358,7 +359,7 @@ WHERE        ID = ?</CommandText>
   <xs:element name="Personel_ActionDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="Personel_ActionDataSet" msprop:Generator_UserDSName="Personel_ActionDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="actionCode" msprop:Generator_TableClassName="actionCodeDataTable" msprop:Generator_TableVarName="tableactionCode" msprop:Generator_RowChangedName="actionCodeRowChanged" msprop:Generator_TablePropName="actionCode" msprop:Generator_RowDeletingName="actionCodeRowDeleting" msprop:Generator_RowChangingName="actionCodeRowChanging" msprop:Generator_RowEvHandlerName="actionCodeRowChangeEventHandler" msprop:Generator_RowDeletedName="actionCodeRowDeleted" msprop:Generator_RowClassName="actionCodeRow" msprop:Generator_UserTableName="actionCode" msprop:Generator_RowEvArgName="actionCodeRowChangeEvent">
+        <xs:element name="actionCode" msprop:Generator_TableClassName="actionCodeDataTable" msprop:Generator_TableVarName="tableactionCode" msprop:Generator_TablePropName="actionCode" msprop:Generator_RowDeletingName="actionCodeRowDeleting" msprop:Generator_RowChangingName="actionCodeRowChanging" msprop:Generator_RowEvHandlerName="actionCodeRowChangeEventHandler" msprop:Generator_RowDeletedName="actionCodeRowDeleted" msprop:Generator_UserTableName="actionCode" msprop:Generator_RowChangedName="actionCodeRowChanged" msprop:Generator_RowEvArgName="actionCodeRowChangeEvent" msprop:Generator_RowClassName="actionCodeRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID">
@@ -379,7 +380,7 @@ WHERE        ID = ?</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="approval" msprop:Generator_TableClassName="approvalDataTable" msprop:Generator_TableVarName="tableapproval" msprop:Generator_RowChangedName="approvalRowChanged" msprop:Generator_TablePropName="approval" msprop:Generator_RowDeletingName="approvalRowDeleting" msprop:Generator_RowChangingName="approvalRowChanging" msprop:Generator_RowEvHandlerName="approvalRowChangeEventHandler" msprop:Generator_RowDeletedName="approvalRowDeleted" msprop:Generator_RowClassName="approvalRow" msprop:Generator_UserTableName="approval" msprop:Generator_RowEvArgName="approvalRowChangeEvent">
+        <xs:element name="approval" msprop:Generator_TableClassName="approvalDataTable" msprop:Generator_TableVarName="tableapproval" msprop:Generator_TablePropName="approval" msprop:Generator_RowDeletingName="approvalRowDeleting" msprop:Generator_RowChangingName="approvalRowChanging" msprop:Generator_RowEvHandlerName="approvalRowChangeEventHandler" msprop:Generator_RowDeletedName="approvalRowDeleted" msprop:Generator_UserTableName="approval" msprop:Generator_RowChangedName="approvalRowChanged" msprop:Generator_RowEvArgName="approvalRowChangeEvent" msprop:Generator_RowClassName="approvalRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID">
@@ -410,7 +411,7 @@ WHERE        ID = ?</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="personelAction" msprop:Generator_TableClassName="personelActionDataTable" msprop:Generator_TableVarName="tablepersonelAction" msprop:Generator_RowChangedName="personelActionRowChanged" msprop:Generator_TablePropName="personelAction" msprop:Generator_RowDeletingName="personelActionRowDeleting" msprop:Generator_RowChangingName="personelActionRowChanging" msprop:Generator_RowEvHandlerName="personelActionRowChangeEventHandler" msprop:Generator_RowDeletedName="personelActionRowDeleted" msprop:Generator_RowClassName="personelActionRow" msprop:Generator_UserTableName="personelAction" msprop:Generator_RowEvArgName="personelActionRowChangeEvent">
+        <xs:element name="personelAction" msprop:Generator_TableClassName="personelActionDataTable" msprop:Generator_TableVarName="tablepersonelAction" msprop:Generator_TablePropName="personelAction" msprop:Generator_RowDeletingName="personelActionRowDeleting" msprop:Generator_RowChangingName="personelActionRowChanging" msprop:Generator_RowEvHandlerName="personelActionRowChangeEventHandler" msprop:Generator_RowDeletedName="personelActionRowDeleted" msprop:Generator_UserTableName="personelAction" msprop:Generator_RowChangedName="personelActionRowChanged" msprop:Generator_RowEvArgName="personelActionRowChangeEvent" msprop:Generator_RowClassName="personelActionRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:string" />
@@ -477,7 +478,7 @@ WHERE        ID = ?</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="FindApproval" msprop:Generator_TableClassName="FindApprovalDataTable" msprop:Generator_TableVarName="tableFindApproval" msprop:Generator_TablePropName="FindApproval" msprop:Generator_RowDeletingName="FindApprovalRowDeleting" msprop:Generator_RowChangingName="FindApprovalRowChanging" msprop:Generator_RowEvHandlerName="FindApprovalRowChangeEventHandler" msprop:Generator_RowDeletedName="FindApprovalRowDeleted" msprop:Generator_UserTableName="FindApproval" msprop:Generator_RowChangedName="FindApprovalRowChanged" msprop:Generator_RowEvArgName="FindApprovalRowChangeEvent" msprop:Generator_RowClassName="FindApprovalRow">
+        <xs:element name="FindApproval" msprop:Generator_TableClassName="FindApprovalDataTable" msprop:Generator_TableVarName="tableFindApproval" msprop:Generator_RowChangedName="FindApprovalRowChanged" msprop:Generator_TablePropName="FindApproval" msprop:Generator_RowDeletingName="FindApprovalRowDeleting" msprop:Generator_RowChangingName="FindApprovalRowChanging" msprop:Generator_RowEvHandlerName="FindApprovalRowChangeEventHandler" msprop:Generator_RowDeletedName="FindApprovalRowDeleted" msprop:Generator_RowClassName="FindApprovalRow" msprop:Generator_UserTableName="FindApproval" msprop:Generator_RowEvArgName="FindApprovalRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" minOccurs="0">
@@ -510,6 +511,13 @@ WHERE        ID = ?</CommandText>
               </xs:element>
               <xs:element name="status" msprop:Generator_ColumnVarNameInTable="columnstatus" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_UserColumnName="status" type="xs:int" minOccurs="0" />
               <xs:element name="no" msprop:Generator_ColumnVarNameInTable="columnno" msprop:Generator_ColumnPropNameInRow="no" msprop:Generator_ColumnPropNameInTable="noColumn" msprop:Generator_UserColumnName="no" type="xs:int" minOccurs="0" />
+              <xs:element name="aName" msprop:Generator_ColumnVarNameInTable="columnaName" msprop:Generator_ColumnPropNameInRow="aName" msprop:Generator_ColumnPropNameInTable="aNameColumn" msprop:Generator_UserColumnName="aName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

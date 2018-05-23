@@ -63,6 +63,10 @@ Partial Class Form1
         Me.ApprovalTableAdapter = New Approval.Personel_ActionDataSetTableAdapters.approvalTableAdapter()
         Me.EmailBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.EmailTableAdapter = New Approval.EmployeeDataSetTableAdapters.emailTableAdapter()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.AddMandatoryLeaveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ADDMANDATORYLEAVEToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ADDBONUSLEAVEToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.EmployeeBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -82,6 +86,7 @@ Partial Class Form1
         CType(Me.Personel_ActionDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApprovalBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmailBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -98,7 +103,7 @@ Partial Class Form1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(371, 511)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(371, 487)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'TableLayoutPanel2
@@ -109,14 +114,14 @@ Partial Class Form1
         Me.TableLayoutPanel2.Controls.Add(Me.Label1, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.tbLogin, 0, 1)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(40, 54)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(40, 51)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 4
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.78531!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.474576!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.58192!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.72316!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(290, 402)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(290, 383)
         Me.TableLayoutPanel2.TabIndex = 0
         '
         'FlowLayoutPanel1
@@ -125,7 +130,7 @@ Partial Class Form1
         Me.FlowLayoutPanel1.BackgroundImage = CType(resources.GetObject("FlowLayoutPanel1.BackgroundImage"), System.Drawing.Image)
         Me.FlowLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(3, 211)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(3, 201)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(284, 34)
         Me.FlowLayoutPanel1.TabIndex = 0
@@ -135,7 +140,7 @@ Partial Class Form1
         Me.Label1.AutoSize = True
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Label1.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(3, 157)
+        Me.Label1.Location = New System.Drawing.Point(3, 148)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(284, 18)
         Me.Label1.TabIndex = 2
@@ -146,7 +151,7 @@ Partial Class Form1
         '
         Me.tbLogin.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.tbLogin.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbLogin.Location = New System.Drawing.Point(3, 182)
+        Me.tbLogin.Location = New System.Drawing.Point(3, 172)
         Me.tbLogin.Name = "tbLogin"
         Me.tbLogin.Size = New System.Drawing.Size(284, 23)
         Me.tbLogin.TabIndex = 1
@@ -167,9 +172,9 @@ Partial Class Form1
         '
         Me.LoginPanel.Controls.Add(Me.TableLayoutPanel1)
         Me.LoginPanel.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LoginPanel.Location = New System.Drawing.Point(0, 0)
+        Me.LoginPanel.Location = New System.Drawing.Point(0, 24)
         Me.LoginPanel.Name = "LoginPanel"
-        Me.LoginPanel.Size = New System.Drawing.Size(371, 511)
+        Me.LoginPanel.Size = New System.Drawing.Size(371, 487)
         Me.LoginPanel.TabIndex = 1
         '
         'AdminApproval
@@ -177,9 +182,9 @@ Partial Class Form1
         Me.AdminApproval.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.AdminApproval.Controls.Add(Me.TableLayoutPanel3)
         Me.AdminApproval.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AdminApproval.Location = New System.Drawing.Point(0, 0)
+        Me.AdminApproval.Location = New System.Drawing.Point(0, 24)
         Me.AdminApproval.Name = "AdminApproval"
-        Me.AdminApproval.Size = New System.Drawing.Size(371, 511)
+        Me.AdminApproval.Size = New System.Drawing.Size(371, 487)
         Me.AdminApproval.TabIndex = 1
         '
         'TableLayoutPanel3
@@ -197,7 +202,7 @@ Partial Class Form1
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.0!))
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(371, 511)
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(371, 487)
         Me.TableLayoutPanel3.TabIndex = 1
         '
         'TableLayoutPanel4
@@ -210,13 +215,13 @@ Partial Class Form1
         Me.TableLayoutPanel4.Controls.Add(Me.btnApprove, 0, 2)
         Me.TableLayoutPanel4.Controls.Add(Me.btnDecline, 1, 2)
         Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(40, 54)
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(40, 51)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         Me.TableLayoutPanel4.RowCount = 3
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.049536!))
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.95046!))
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(290, 402)
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(290, 383)
         Me.TableLayoutPanel4.TabIndex = 0
         '
         'DataGridView1
@@ -225,9 +230,9 @@ Partial Class Form1
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.EmName})
         Me.TableLayoutPanel4.SetColumnSpan(Me.DataGridView1, 2)
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridView1.Location = New System.Drawing.Point(3, 32)
+        Me.DataGridView1.Location = New System.Drawing.Point(3, 30)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(284, 326)
+        Me.DataGridView1.Size = New System.Drawing.Size(284, 309)
         Me.DataGridView1.TabIndex = 1
         '
         'ID
@@ -258,7 +263,7 @@ Partial Class Form1
         Me.btnApprove.BackgroundImage = CType(resources.GetObject("btnApprove.BackgroundImage"), System.Drawing.Image)
         Me.btnApprove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btnApprove.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnApprove.Location = New System.Drawing.Point(3, 364)
+        Me.btnApprove.Location = New System.Drawing.Point(3, 345)
         Me.btnApprove.Name = "btnApprove"
         Me.btnApprove.Size = New System.Drawing.Size(139, 35)
         Me.btnApprove.TabIndex = 2
@@ -269,7 +274,7 @@ Partial Class Form1
         Me.btnDecline.BackgroundImage = CType(resources.GetObject("btnDecline.BackgroundImage"), System.Drawing.Image)
         Me.btnDecline.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btnDecline.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnDecline.Location = New System.Drawing.Point(148, 364)
+        Me.btnDecline.Location = New System.Drawing.Point(148, 345)
         Me.btnDecline.Name = "btnDecline"
         Me.btnDecline.Size = New System.Drawing.Size(139, 35)
         Me.btnDecline.TabIndex = 3
@@ -279,7 +284,7 @@ Partial Class Form1
         Me.Label2.AutoSize = True
         Me.Label2.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Label2.Font = New System.Drawing.Font("Trebuchet MS", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(40, 24)
+        Me.Label2.Location = New System.Drawing.Point(40, 21)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(290, 27)
         Me.Label2.TabIndex = 1
@@ -295,9 +300,9 @@ Partial Class Form1
         Me.SupApproval.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.SupApproval.Controls.Add(Me.TableLayoutPanel5)
         Me.SupApproval.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SupApproval.Location = New System.Drawing.Point(0, 0)
+        Me.SupApproval.Location = New System.Drawing.Point(0, 24)
         Me.SupApproval.Name = "SupApproval"
-        Me.SupApproval.Size = New System.Drawing.Size(371, 511)
+        Me.SupApproval.Size = New System.Drawing.Size(371, 487)
         Me.SupApproval.TabIndex = 2
         '
         'TableLayoutPanel5
@@ -315,7 +320,7 @@ Partial Class Form1
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.0!))
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(371, 511)
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(371, 487)
         Me.TableLayoutPanel5.TabIndex = 1
         '
         'TableLayoutPanel6
@@ -328,13 +333,13 @@ Partial Class Form1
         Me.TableLayoutPanel6.Controls.Add(Me.FlowLayoutPanel2, 0, 2)
         Me.TableLayoutPanel6.Controls.Add(Me.FlowLayoutPanel3, 1, 2)
         Me.TableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel6.Location = New System.Drawing.Point(40, 54)
+        Me.TableLayoutPanel6.Location = New System.Drawing.Point(40, 51)
         Me.TableLayoutPanel6.Name = "TableLayoutPanel6"
         Me.TableLayoutPanel6.RowCount = 3
         Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.049536!))
         Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.95046!))
         Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
-        Me.TableLayoutPanel6.Size = New System.Drawing.Size(290, 402)
+        Me.TableLayoutPanel6.Size = New System.Drawing.Size(290, 383)
         Me.TableLayoutPanel6.TabIndex = 0
         '
         'DataGridView2
@@ -343,9 +348,9 @@ Partial Class Form1
         Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2})
         Me.TableLayoutPanel6.SetColumnSpan(Me.DataGridView2, 2)
         Me.DataGridView2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridView2.Location = New System.Drawing.Point(3, 32)
+        Me.DataGridView2.Location = New System.Drawing.Point(3, 30)
         Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.Size = New System.Drawing.Size(284, 326)
+        Me.DataGridView2.Size = New System.Drawing.Size(284, 309)
         Me.DataGridView2.TabIndex = 1
         '
         'DataGridViewTextBoxColumn1
@@ -377,7 +382,7 @@ Partial Class Form1
         Me.FlowLayoutPanel2.BackgroundImage = CType(resources.GetObject("FlowLayoutPanel2.BackgroundImage"), System.Drawing.Image)
         Me.FlowLayoutPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(3, 364)
+        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(3, 345)
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
         Me.FlowLayoutPanel2.Size = New System.Drawing.Size(139, 35)
         Me.FlowLayoutPanel2.TabIndex = 2
@@ -388,7 +393,7 @@ Partial Class Form1
         Me.FlowLayoutPanel3.BackgroundImage = CType(resources.GetObject("FlowLayoutPanel3.BackgroundImage"), System.Drawing.Image)
         Me.FlowLayoutPanel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(148, 364)
+        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(148, 345)
         Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
         Me.FlowLayoutPanel3.Size = New System.Drawing.Size(139, 35)
         Me.FlowLayoutPanel3.TabIndex = 3
@@ -398,7 +403,7 @@ Partial Class Form1
         Me.Label3.AutoSize = True
         Me.Label3.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Label3.Font = New System.Drawing.Font("Trebuchet MS", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(40, 24)
+        Me.Label3.Location = New System.Drawing.Point(40, 21)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(290, 27)
         Me.Label3.TabIndex = 1
@@ -451,6 +456,34 @@ Partial Class Form1
         '
         Me.EmailTableAdapter.ClearBeforeFill = True
         '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddMandatoryLeaveToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(371, 24)
+        Me.MenuStrip1.TabIndex = 3
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'AddMandatoryLeaveToolStripMenuItem
+        '
+        Me.AddMandatoryLeaveToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ADDMANDATORYLEAVEToolStripMenuItem1, Me.ADDBONUSLEAVEToolStripMenuItem})
+        Me.AddMandatoryLeaveToolStripMenuItem.Name = "AddMandatoryLeaveToolStripMenuItem"
+        Me.AddMandatoryLeaveToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
+        Me.AddMandatoryLeaveToolStripMenuItem.Text = "SETTING"
+        '
+        'ADDMANDATORYLEAVEToolStripMenuItem1
+        '
+        Me.ADDMANDATORYLEAVEToolStripMenuItem1.Name = "ADDMANDATORYLEAVEToolStripMenuItem1"
+        Me.ADDMANDATORYLEAVEToolStripMenuItem1.Size = New System.Drawing.Size(211, 22)
+        Me.ADDMANDATORYLEAVEToolStripMenuItem1.Text = "ADD MANDATORY LEAVE"
+        '
+        'ADDBONUSLEAVEToolStripMenuItem
+        '
+        Me.ADDBONUSLEAVEToolStripMenuItem.Name = "ADDBONUSLEAVEToolStripMenuItem"
+        Me.ADDBONUSLEAVEToolStripMenuItem.Size = New System.Drawing.Size(211, 22)
+        Me.ADDBONUSLEAVEToolStripMenuItem.Text = "ADD BONUS LEAVE"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -460,6 +493,8 @@ Partial Class Form1
         Me.Controls.Add(Me.SupApproval)
         Me.Controls.Add(Me.LoginPanel)
         Me.Controls.Add(Me.AdminApproval)
+        Me.Controls.Add(Me.MenuStrip1)
+        Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Form1"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
@@ -485,7 +520,10 @@ Partial Class Form1
         CType(Me.Personel_ActionDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ApprovalBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmailBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -530,4 +568,8 @@ Partial Class Form1
     Friend WithEvents ApprovalTableAdapter As Personel_ActionDataSetTableAdapters.approvalTableAdapter
     Friend WithEvents EmailBindingSource As BindingSource
     Friend WithEvents EmailTableAdapter As EmployeeDataSetTableAdapters.emailTableAdapter
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents AddMandatoryLeaveToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ADDMANDATORYLEAVEToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents ADDBONUSLEAVEToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -11,3 +11,8 @@ C:\Users\pradanap\source\repos\Approval\Approval\obj\Debug\Approval.exe
 C:\Users\pradanap\source\repos\Approval\Approval\obj\Debug\Approval.xml
 C:\Users\pradanap\source\repos\Approval\Approval\obj\Debug\Approval.pdb
 C:\Users\pradanap\source\repos\Approval\Approval\obj\Debug\Approval.vbproj.ResolveComReference.cache
+C:\Users\pradanap\source\repos\Approval\Approval\bin\Debug\Approval.exe.manifest
+C:\Users\pradanap\source\repos\Approval\Approval\bin\Debug\Approval.application
+C:\Users\pradanap\source\repos\Approval\Approval\obj\Debug\Approval.TrustInfo.xml
+C:\Users\pradanap\source\repos\Approval\Approval\obj\Debug\Approval.exe.manifest
+C:\Users\pradanap\source\repos\Approval\Approval\obj\Debug\Approval.application

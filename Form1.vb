@@ -16,6 +16,7 @@
         LoginPanel.Visible = True
         AdminApproval.Visible = False
         SupApproval.Visible = False
+        MenuStrip1.Visible = False
         stage = 1
     End Sub
 
@@ -44,6 +45,7 @@
                 LoginPanel.Visible = False
                 AdminApproval.Visible = False
                 SupApproval.Visible = True
+                MenuStrip1.Visible = False
                 findApproval()
             Else
                 MsgBox("Login Gagal")
@@ -57,6 +59,7 @@
                 LoginPanel.Visible = False
                 AdminApproval.Visible = True
                 SupApproval.Visible = False
+                MenuStrip1.Visible = True
             Else
                 MsgBox("Login Gagal")
                 stage = 2
@@ -107,6 +110,9 @@
     End Sub
 
     Private Sub findApproval()
+        DataGridView2.Rows.Clear()
+        'TODO: This line of code loads data into the 'Personel_ActionDataSet1.FindApproval' table. You can move, or remove it, as needed.
+        Me.FindApprovalTableAdapter.Fill(Me.Personel_ActionDataSet1.FindApproval)
         Dim ID(999), EmName(999) As String
         FindApprovalBindingSource.Filter = "KPK = " & kpk & " and status = 2"
         For i = 0 To FindApprovalBindingSource.Count - 1
@@ -128,35 +134,88 @@
         Dim index = DataGridView2.CurrentCell.RowIndex
         Dim ID = DataGridView2.Item(0, index).Value
         Dim NAMA = DataGridView2.Item(1, index).Value
-        MsgBox("APAKAH ANDA YAKIN INGIN MENOLAK REQUEST CUTI" & vbNewLine & ID & " - " & NAMA, vbYesNo, "TOLAK?")
-        FindApprovalBindingSource.Filter = "KPK = " & kpk & " and ID = '" & ID & "'"
-        Dim no = FindApprovalBindingSource.Current("no")
-        ApprovalTableAdapter.UpdateApproval(99, ID, no)
-        PersonelActionTableAdapter.DeclineQuery(ID)
+        Dim ans = MsgBox("Are you sure to DECLINE this leave request?" & vbNewLine & ID & " - " & NAMA, vbYesNo, "Decline?")
+
+        If ans = 6 Then
+            FindApprovalBindingSource.Filter = "KPK = " & kpk & " and ID = '" & ID & "'"
+            Dim no = FindApprovalBindingSource.Current("no")
+            ApprovalTableAdapter.UpdateApproval(99, ID, no)
+            PersonelActionTableAdapter.DeclineQuery(ID)
+            findApproval()
+        End If
     End Sub
 
     Private Sub FlowLayoutPanel2_Click(sender As Object, e As EventArgs) Handles FlowLayoutPanel2.Click
         Dim index = DataGridView2.CurrentCell.RowIndex
         Dim ID = DataGridView2.Item(0, index).Value.ToString
         Dim NAMA = DataGridView2.Item(1, index).Value
-        MsgBox("APAKAH ANDA YAKIN INGIN MENERIMA REQUEST CUTI" & vbNewLine & ID & " - " & NAMA, vbYesNo, "TERIMA?")
-        FindApprovalBindingSource.Filter = "KPK = " & kpk & " and ID = '" & ID & "'"
-        Dim no = FindApprovalBindingSource.Current("no")
-        Dim nexta = no + 1
-        Dim nextnum = ApprovalTableAdapter.CountNext(ID, nexta)
-        If nextnum = 1 Then
-            'ApprovalTableAdapter.UpdateApproval(1, ID, no)
-            'ApprovalTableAdapter.UpdateApproval(2, ID, nexta)
-            Dim tos, cc As String
-            FindApprovalBindingSource.Filter = "no = " & nexta & " and ID = '" & ID & "'"
-            Dim tokpk = FindApprovalBindingSource.Current("kpk")
-            EmailBindingSource.Filter = "ID = " & tokpk
-            tos = EmailBindingSource.Current("email")
+        Dim ans = MsgBox("Are you sure to APPROVE this leave request?" & vbNewLine & ID & " - " & NAMA, vbYesNo, "Approve?")
 
+        If ans = 6 Then
+            FindApprovalBindingSource.Filter = "KPK = " & kpk & " and ID = '" & ID & "'"
+            Dim no = FindApprovalBindingSource.Current("no")
+            Dim sName = FindApprovalBindingSource.Current("aName")
+            Dim nexta = no + 1
+            Dim nextnum = ApprovalTableAdapter.CountNext(ID, nexta)
 
-        ElseIf nextnum = 0 Then
-            ApprovalTableAdapter.UpdateApproval(1, ID, no)
-            PersonelActionTableAdapter.AcceptQuery(ID)
+            If nextnum = 1 Then
+                ApprovalTableAdapter.UpdateApproval(1, ID, no)
+                ApprovalTableAdapter.UpdateApproval(2, ID, nexta)
+                Dim tos, tosn, cc As String
+
+                FindApprovalBindingSource.Filter = "no = " & nexta & " and ID = '" & ID & "'"
+                EmailBindingSource.Filter = "ID = " & FindApprovalBindingSource.Current("kpk")
+                tos = EmailBindingSource.Current("email")
+                tosn = EmailBindingSource.Current("eName")
+
+                PersonelActionBindingSource.Filter = "ID = '" & ID & "'"
+                EmailBindingSource.Filter = "ID = " & PersonelActionBindingSource.Current("kpk")
+                cc = EmailBindingSource.Current("email") & ";"
+
+                For i = 1 To no
+                    FindApprovalBindingSource.Filter = "no = " & i & " and ID = '" & ID & "'"
+                    EmailBindingSource.Filter = "ID = " & FindApprovalBindingSource.Current("kpk")
+                    cc = cc & EmailBindingSource.Current("email") & ";"
+                Next
+
+                SendMail.sendMail(tos, tosn, cc,
+                                  PersonelActionBindingSource.Current("emName"),
+                                  PersonelActionBindingSource.Current("kpk"),
+                                  PersonelActionBindingSource.Current("effDate"),
+                                  PersonelActionBindingSource.Current("finDate"),
+                                  sName)
+            ElseIf nextnum = 0 Then
+                ApprovalTableAdapter.UpdateApproval(1, ID, no)
+                PersonelActionTableAdapter.AcceptQuery(ID)
+
+                ApprovalTableAdapter.UpdateApproval(1, ID, no)
+                ApprovalTableAdapter.UpdateApproval(2, ID, nexta)
+                Dim tos, tosn, cc As String
+
+                'FindApprovalBindingSource.Filter = "no = " & nexta & " and ID = '" & ID & "'"
+                'EmailBindingSource.Filter = "ID = " & FindApprovalBindingSource.Current("kpk")
+                'tos = EmailBindingSource.Current("email")
+                'tosn = EmailBindingSource.Current("eName")
+
+                PersonelActionBindingSource.Filter = "ID = '" & ID & "'"
+                EmailBindingSource.Filter = "ID = " & PersonelActionBindingSource.Current("kpk")
+                tos = EmailBindingSource.Current("email") & ";"
+                tosn = PersonelActionBindingSource.Current("emName")
+
+                For i = 1 To no
+                    FindApprovalBindingSource.Filter = "no = " & i & " and ID = '" & ID & "'"
+                    EmailBindingSource.Filter = "ID = " & FindApprovalBindingSource.Current("kpk")
+                    cc = cc & EmailBindingSource.Current("email") & ";"
+                Next
+
+                SendMail.sendMail1(tos, tosn, cc,
+                                  PersonelActionBindingSource.Current("emName"),
+                                  PersonelActionBindingSource.Current("kpk"),
+                                  PersonelActionBindingSource.Current("effDate"),
+                                  PersonelActionBindingSource.Current("finDate"),
+                                  sName)
+            End If
+            findApproval()
         End If
     End Sub
 End Class

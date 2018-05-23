@@ -16,3 +16,4 @@ C:\Users\pradanap\source\repos\Approval\Approval\bin\Debug\Approval.application
 C:\Users\pradanap\source\repos\Approval\Approval\obj\Debug\Approval.TrustInfo.xml
 C:\Users\pradanap\source\repos\Approval\Approval\obj\Debug\Approval.exe.manifest
 C:\Users\pradanap\source\repos\Approval\Approval\obj\Debug\Approval.application
+C:\Users\pradanap\source\repos\Approval\Approval\obj\Debug\Approval.Form2.resources

@@ -1,10 +1,13 @@
 ﻿Imports System.Text
 
-Public Class Form2
+Public Class Form3
     Dim Cuti As New Cuti
     Dim submit, awal, akhir As DateTime
     Dim totalhari As Integer
-    Dim remarks As String
+    Dim remarks, KPK, Nama, Dept, Section As String
+
+
+
     Private Sub FlowLayoutPanel1_Click(sender As Object, e As EventArgs) Handles FlowLayoutPanel1.Click
         Dim ID As String = ""
         Dim count As Integer = 1
@@ -19,14 +22,31 @@ Public Class Form2
         totalhari = akhir.Subtract(awal).Days + 1
         remarks = TextBox1.Text
 
-        PersonelActionTableAdapter.InsertPA(ID, submit, awal.Date, akhir.Date, totalhari, remarks)
-        MsgBox("MANDATORY LEAVE HAS BEEN ADDED")
+        PersonelActionTableAdapter.InsertBonus(ID, submit, KPK, Nama, Dept, Section, awal.Date, akhir.Date, totalhari, remarks)
+        MsgBox("BONUS LEAVE HAS BEEN ADDED")
     End Sub
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        TextBox2.Select()
+        'TODO: This line of code loads data into the 'EmployeeDataSet.Employee' table. You can move, or remove it, as needed.
+        Me.EmployeeTableAdapter.Fill(Me.EmployeeDataSet.Employee)
         'TODO: This line of code loads data into the 'Personel_ActionDataSet.personelAction' table. You can move, or remove it, as needed.
         Me.PersonelActionTableAdapter.Fill(Me.Personel_ActionDataSet.personelAction)
 
+    End Sub
+
+    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
+        On Error Resume Next
+        KPK = TextBox2.Text
+        EmployeeBindingSource.Filter = "ID = " & KPK
+        If EmployeeBindingSource.Count() = 1 Then
+            Nama = Trim(EmployeeBindingSource.Current("EMNAME"))
+            Dept = Trim(EmployeeBindingSource.Current("EMDEPT"))
+            Section = Trim(EmployeeBindingSource.Current("EMLOC#"))
+            TextBox3.Text = Nama
+        Else
+            TextBox3.Text = ""
+        End If
     End Sub
 
     'String randomizer

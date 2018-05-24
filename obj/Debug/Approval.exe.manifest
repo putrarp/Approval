@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Approval.exe" size="226216">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Approval.exe" size="261032">
       <assemblyIdentity name="Approval" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>NMzNllc1w5GfU/1JCXD6Rg9+WAs=</dsig:DigestValue>
+        <dsig:DigestValue>qFcwDi9GT+3/OPNuP22l1kjO0Is=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

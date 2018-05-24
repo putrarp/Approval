@@ -16,7 +16,7 @@
         LoginPanel.Visible = True
         AdminApproval.Visible = False
         SupApproval.Visible = False
-        MenuStrip1.Visible = False
+        'MenuStrip1.Visible = False
         stage = 1
     End Sub
 
@@ -38,14 +38,14 @@
             End If
         ElseIf stage = 2 Then
             Dim birt = tbLogin.Text
-            If True Then
+            If "a" = birt Then
                 'If birthdate = birt Then
                 MsgBox("Login Success")
                 stage = 1
                 LoginPanel.Visible = False
                 AdminApproval.Visible = False
                 SupApproval.Visible = True
-                MenuStrip1.Visible = False
+                'MenuStrip1.Visible = False
                 findApproval()
             Else
                 MsgBox("Login Gagal")
@@ -59,7 +59,7 @@
                 LoginPanel.Visible = False
                 AdminApproval.Visible = True
                 SupApproval.Visible = False
-                MenuStrip1.Visible = True
+                'MenuStrip1.Visible = True
             Else
                 MsgBox("Login Gagal")
                 stage = 2
@@ -139,10 +139,47 @@
         If ans = 6 Then
             FindApprovalBindingSource.Filter = "KPK = " & kpk & " and ID = '" & ID & "'"
             Dim no = FindApprovalBindingSource.Current("no")
+            Dim sName = FindApprovalBindingSource.Current("aName")
             ApprovalTableAdapter.UpdateApproval(99, ID, no)
             PersonelActionTableAdapter.DeclineQuery(ID)
             findApproval()
+            Dim tos, tosn, cc As String
+
+            'FindApprovalBindingSource.Filter = "no = " & nexta & " and ID = '" & ID & "'"
+            'EmailBindingSource.Filter = "ID = " & FindApprovalBindingSource.Current("kpk")
+            'tos = EmailBindingSource.Current("email")
+            'tosn = EmailBindingSource.Current("eName")
+
+            PersonelActionBindingSource.Filter = "ID = '" & ID & "'"
+            EmailBindingSource.Filter = "ID = " & PersonelActionBindingSource.Current("kpk")
+            tos = EmailBindingSource.Current("email") & ";"
+            tosn = PersonelActionBindingSource.Current("emName")
+
+            For i = 1 To no
+                FindApprovalBindingSource.Filter = "no = " & i & " and ID = '" & ID & "'"
+                EmailBindingSource.Filter = "ID = " & FindApprovalBindingSource.Current("kpk")
+                cc = cc & EmailBindingSource.Current("email") & ";"
+            Next
+
+            SendMail.sendMail2(tos, tosn, cc,
+                              PersonelActionBindingSource.Current("emName"),
+                              PersonelActionBindingSource.Current("kpk"),
+                              PersonelActionBindingSource.Current("effDate"),
+                              PersonelActionBindingSource.Current("finDate"),
+                              sName)
         End If
+    End Sub
+
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+        ContextMenuStrip1.Show(Cursor.Position)
+    End Sub
+
+    Private Sub ADDMANDATORYLEAVESToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ADDMANDATORYLEAVEToolStripMenuItem.Click
+        Form2.Show()
+    End Sub
+
+    Private Sub ADDBONUSLEAVEToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles ADDBONUSLEAVEToolStripMenuItem.Click
+        Form3.Show()
     End Sub
 
     Private Sub FlowLayoutPanel2_Click(sender As Object, e As EventArgs) Handles FlowLayoutPanel2.Click

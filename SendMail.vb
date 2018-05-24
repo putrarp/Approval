@@ -35,7 +35,7 @@ Module SendMail
         'oAttach = oAttachs.Add(sSource, , sBodyLen + 1, sDisplayName)
 
         ' Send
-        oMsg.Display()
+        oMsg.Send()
 
         ' Clean up
         oApp = Nothing
@@ -53,7 +53,7 @@ Module SendMail
         Dim oMsg As Outlook.MailItem
         oMsg = oApp.CreateItem(Outlook.OlItemType.olMailItem)
         oMsg.Subject = "LEAVE REQUEST - " & eName
-        oMsg.Body = "DEAR " & tosn & "," & vbNewLine & vbNewLine &
+        oMsg.Body = "Dear " & tosn & "," & vbNewLine & vbNewLine &
                     "Your Leave Request has been approved" & vbNewLine & vbNewLine &
                     "KPK = " & eKpk & vbNewLine &
                     "Name = " & eName & vbNewLine &
@@ -78,7 +78,50 @@ Module SendMail
         'oAttach = oAttachs.Add(sSource, , sBodyLen + 1, sDisplayName)
 
         ' Send
-        oMsg.Display()
+        oMsg.Send()
+
+        ' Clean up
+        oApp = Nothing
+        oMsg = Nothing
+        'oAttach = Nothing
+        'oAttachs = Nothing
+    End Sub
+
+    Public Sub sendMail2(tos, tosn, cc, eName, eKpk, tglMulai, tglAkhir, sName)
+        ' Create an Outlook application.
+        Dim oApp As Outlook.Application
+        oApp = New Outlook.Application()
+
+        ' Create a new MailItem.
+        Dim oMsg As Outlook.MailItem
+        oMsg = oApp.CreateItem(Outlook.OlItemType.olMailItem)
+        oMsg.Subject = "LEAVE REQUEST - " & eName
+        oMsg.Body = "Dear " & tosn & "," & vbNewLine & vbNewLine &
+                    "Your Leave Request has been declined" & vbNewLine & vbNewLine &
+                    "KPK = " & eKpk & vbNewLine &
+                    "Name = " & eName & vbNewLine &
+                    "Effective Date = " & tglMulai & vbNewLine &
+                    "End Date = " & tglAkhir & vbNewLine & vbNewLine &
+                    "Thanks & Regards," & vbNewLine &
+                    sName
+
+        ' TODO: Replace with a valid e-mail address.
+        oMsg.To = tos
+        oMsg.CC = cc
+
+        ' Add an attachment
+        ' TODO: Replace with a valid attachment path.
+        'Dim sSource As String = "C:\Temp\Hello.txt"
+        ' TODO: Replace with attachment name
+        'Dim sDisplayName As String = "Hello.txt"
+
+        Dim sBodyLen As String = oMsg.Body.Length
+        'Dim oAttachs As Outlook.Attachments = oMsg.Attachments
+        'Dim oAttach As Outlook.Attachment
+        'oAttach = oAttachs.Add(sSource, , sBodyLen + 1, sDisplayName)
+
+        ' Send
+        oMsg.Send()
 
         ' Clean up
         oApp = Nothing

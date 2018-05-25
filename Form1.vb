@@ -166,7 +166,8 @@
                               PersonelActionBindingSource.Current("kpk"),
                               PersonelActionBindingSource.Current("effDate"),
                               PersonelActionBindingSource.Current("finDate"),
-                              sName)
+                              sName,
+                              PersonelActionBindingSource.Current("remarks"))
         End If
     End Sub
 
@@ -220,7 +221,8 @@
                                   PersonelActionBindingSource.Current("kpk"),
                                   PersonelActionBindingSource.Current("effDate"),
                                   PersonelActionBindingSource.Current("finDate"),
-                                  sName)
+                                  sName,
+                                  PersonelActionBindingSource.Current("remarks"))
             ElseIf nextnum = 0 Then
                 ApprovalTableAdapter.UpdateApproval(1, ID, no)
                 PersonelActionTableAdapter.AcceptQuery(ID)
@@ -250,7 +252,8 @@
                                   PersonelActionBindingSource.Current("kpk"),
                                   PersonelActionBindingSource.Current("effDate"),
                                   PersonelActionBindingSource.Current("finDate"),
-                                  sName)
+                                  sName,
+                                  PersonelActionBindingSource.Current("remarks"))
             End If
             findApproval()
         End If

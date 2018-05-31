@@ -38,8 +38,8 @@
             End If
         ElseIf stage = 2 Then
             Dim birt = tbLogin.Text
-            If "a" = birt Then
-                'If birthdate = birt Then
+            'If "a" = birt Then
+            If birthdate = birt Then
                 MsgBox("Login Success")
                 stage = 1
                 LoginPanel.Visible = False
@@ -76,6 +76,9 @@
     Private Sub tbScan_KeyDown(sender As Object, e As KeyEventArgs) Handles tbScan.KeyDown
         If e.KeyCode = Keys.Enter Then
             Dim ID = tbScan.Text
+            If ID.Length > 6 Then
+                ID = ID.Substring(0, ID.Length - 1)
+            End If
             Dim count = PersonelActionTableAdapter.ScanQuery(ID)
             If count = 1 Then
                 PersonelActionBindingSource.Filter = "ID = '" & ID.ToString & "'"
